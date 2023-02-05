@@ -27,6 +27,31 @@
 
 const largestCountry = (countries, cities, populations) => {
 
+let sum = 0;
+  let countryPopulation = 0;
+  let country = "";
+  let countryCities = [];
+
+  for (let i = 0; i < countries.length; i++) {
+    countryCities = cities.filter(
+      (city) => city.country_id === countries[i].id
+    );
+    for (let j = 0; j < countryCities.length; j++) {
+      for (let k = 0; k < populations.length; k++) {
+        if (populations[k].city_id == countryCities[j].id) {
+          sum += populations[k].amount;
+        }
+      }
+    }
+    if (sum > countryPopulation) {
+      country = countries[i].name;
+      countryPopulation = sum;
+      sum = 0;
+    } else {
+      sum = 0;
+    }
+  }
+
   return { name: country, population: countryPopulation };
 };
 
