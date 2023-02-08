@@ -25,6 +25,9 @@
 
 // Example Output: { name: 'USA', population: 12200000 }
 
+//Type npm start to run program
+//Type npm test to run tests
+
 const largestCountry = (countries, cities, populations) => {
 
   return { name: country, population: countryPopulation };
